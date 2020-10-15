@@ -15,7 +15,7 @@
             <td><img width="90px" class="img-thumbnail" [src]="film.image" [alt]="film.title"></td>
             <td>{{film.title | uppercase}}</td>
             <td>{{film.gender}}</td>
-            <td>{{film.price | currency}} ></td>
+            <td>{{film.price | currency}} </td>
             <td >  <span *ngIf="film.stock==0" class="badge badge-danger">Sin Stock</span>  </td>
             <td>
                 <button class="btn  btn-primary btn-xs" (click)="downQuantity(film)">-</button>
