@@ -14,6 +14,7 @@ export class FilmListComponent implements OnInit {
           stock: 5,
           image: "assets/img/wick.jpg",
           recomend: false,
+          quantity: 0,
         },
         {
           title: "Avenger",
@@ -22,6 +23,7 @@ export class FilmListComponent implements OnInit {
           stock: 4,
           image: "assets/img/wick.jpg",
           recomend: true,
+          quantity: 0,
         },
         {
           title: "Avatar",
@@ -30,6 +32,16 @@ export class FilmListComponent implements OnInit {
           stock: 0,
           image: "assets/img/wick.jpg",
           recomend: false,
+          quantity: 0,
+        },
+        {
+          title: "Dirty Harry",
+          gender: "accion",
+          price: 90,
+          stock: 0,
+          image: "assets/img/wick.jpg",
+          recomend: true,
+          quantity: 0,
         },
 
   ];
@@ -38,6 +50,25 @@ export class FilmListComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  upQuantity(film: Film): void{
+    if(film.quantity < film.stock )
+    film.quantity++;
+  }
+  downQuantity(film: Film): void{
+    if(film.quantity >0)
+    film.quantity--;
+  }
+
+  changeQuantity(event, film: Film): void{
+    if(film.quantity > film.stock) {
+      alert("No hay mas copias disponibles");
+    }
+    if(film.quantity < 0) {
+      alert("No se pueden encargar copias negativas ");
+    }
+    film.quantity = 0;
   }
 
 }

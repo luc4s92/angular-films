@@ -5,4 +5,5 @@ export interface Film{
     stock: number
     image: string;
     recomend: boolean;
+    quantity: number;
 }
