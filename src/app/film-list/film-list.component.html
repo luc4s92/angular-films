@@ -1,5 +1,5 @@
 <h1>Film list</h1>
-<table class="table table-dark">
+<table class="table table-dark text-center">
     <thead>
         <tr>
             <th></th>
@@ -18,14 +18,16 @@
             <td>{{film.price | currency}} </td>
             <td >  <span *ngIf="film.stock==0" class="badge badge-danger">Sin Stock</span>  </td>
             <td>
-                <button class="btn  btn-primary btn-xs" (click)="downQuantity(film)">-</button>
+                <div class="input-group">
+                <button class="btn  btn-primary btn-sm" (click)="downQuantity(film)">-</button>
                 <input
-                class="smallInput" type="number"
+                 type="number"
                   [(ngModel)]="film.quantity"
                   (keyup)="changeQuantity($event, film)">
                    
-                <button class="btn  btn-primary btn-xs" (click)="upQuantity(film)">+</button>
-                {{film.quantity}}
+                <button class="btn  btn-primary btn-sm" (click)="upQuantity(film)">+</button>
+                
+                </div>
             </td>
         </tr>
         
