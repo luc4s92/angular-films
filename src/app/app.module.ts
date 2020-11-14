@@ -8,6 +8,8 @@ import { FilmCartComponent } from './film-cart/film-cart.component';
 import { FormsModule } from '@angular/forms';
 import { FilmAboutComponent } from './film-about/film-about.component';
 import { FilmBuyComponent } from './film-buy/film-buy.component';
+import { HomeComponent } from './home/home.component';
+import { InputIntegerComponent } from './input-integer/input-integer.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { FilmBuyComponent } from './film-buy/film-buy.component';
     FilmListComponent,
     FilmCartComponent,
     FilmAboutComponent,
-    FilmBuyComponent
+    FilmBuyComponent,
+    HomeComponent,
+    InputIntegerComponent
   ],
   imports: [
     BrowserModule,

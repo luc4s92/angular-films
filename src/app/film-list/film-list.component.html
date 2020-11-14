@@ -18,16 +18,7 @@
             <td>{{film.price | currency}} </td>
             <td >  <span *ngIf="film.stock==0" class="badge badge-danger">Sin Stock</span>  </td>
             <td>
-                <div class="input-group">
-                <button class="btn  btn-primary btn-sm" (click)="downQuantity(film)">-</button>
-                <input
-                 type="number"
-                  [(ngModel)]="film.quantity"
-                  (keyup)="changeQuantity($event, film)">
-                   
-                <button class="btn  btn-primary btn-sm" (click)="upQuantity(film)">+</button>
-                
-                </div>
+                <app-input-integer [(quantity)]="film.quantity" [max]="film.stock" *ngIf="film.stock" (maxReached)="maxReached($event)"></app-input-integer>
             </td>
         </tr>
         

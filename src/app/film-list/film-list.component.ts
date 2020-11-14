@@ -52,23 +52,23 @@ export class FilmListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  upQuantity(film: Film): void{
-    if(film.quantity < film.stock )
-    film.quantity++;
+  
+  maxReached(m: string){
+    alert(m);
   }
-  downQuantity(film: Film): void{
-    if(film.quantity >0)
-    film.quantity--;
+ 
+  showFilms: Boolean;
+
+  mostrarPeliculas(film : Film):void{
+    if(film.quantity >0){
+      this.showFilms = true
+    }
+      else{
+        this.showFilms = false;
+      }
+
   }
 
-  changeQuantity(event, film: Film): void{
-    if(film.quantity > film.stock) {
-      alert("No hay mas copias disponibles");
-    }
-    if(film.quantity < 0) {
-      alert("No se pueden encargar copias negativas ");
-    }
-    film.quantity = 0;
-  }
+
 
 }
