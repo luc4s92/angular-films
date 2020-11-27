@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FilmCartService } from '../film-cart.service';
 import {Film} from './Film';
 @Component({
   selector: 'app-film-list',
@@ -45,9 +46,12 @@ export class FilmListComponent implements OnInit {
         },
 
   ];
-
   
-  constructor() { }
+ 
+  
+  constructor(private cart: FilmCartService ) { 
+    this.cart ;
+  }
 
   ngOnInit(): void {
   }
@@ -57,18 +61,13 @@ export class FilmListComponent implements OnInit {
     alert(m);
   }
  
-  showFilms: Boolean;
-
-  mostrarPeliculas(film : Film):void{
-    if(film.quantity >0){
-      this.showFilms = true
-    }
-      else{
-        this.showFilms = false;
-      }
-
+  addToCart(film):void{
+    this.cart.addToCart(film);
+    film.stock -= film.quantity;
+    film.quantity = 0;
   }
 
+  
 
 
 }

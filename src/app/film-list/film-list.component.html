@@ -1,4 +1,4 @@
-<h1>Film list</h1>
+
 <table class="table table-dark text-center">
     <thead>
         <tr>
@@ -7,6 +7,7 @@
             <th>Genero</th>
             <th>Precio</th>
             <th>Stock</th>
+            <th>Cantidad</th>
             <th>Compra</th>
         </tr>
     </thead>
@@ -17,8 +18,11 @@
             <td>{{film.gender}}</td>
             <td>{{film.price | currency}} </td>
             <td >  <span *ngIf="film.stock==0" class="badge badge-danger">Sin Stock</span>  </td>
-            <td>
+            <td >
                 <app-input-integer [(quantity)]="film.quantity" [max]="film.stock" *ngIf="film.stock" (maxReached)="maxReached($event)"></app-input-integer>
+            </td>
+            <td>
+                <button class="btn btn-primary" (click)="addToCart(film)" > Comprar</button>
             </td>
         </tr>
         
